@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+:root {
+    --botao-color: #19215B;
+    --botao-quiz: #4B12BC;
+    --botao-sair: #C6271A;
+    --texto: #FFFFFF;
+    --preto: #010101;
+    --menu: #0F0E0E;
+}
+
+body {
+    background: url(../../images/planetasfundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.escurecer::before {
+    content: "";
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 26, 0.5);
+    top: 0;
+    left: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 15px;
+}
+
+header ul .options {
+    cursor: pointer;
+}
+
+header div {
+    width: 52px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 81px;
+    font-family: "Inria Serif", serif;
+    font-size: 18px;
+}
+
+header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header button.menu img {
+    height: 20px;
+    width: 35px;
+}
+header button img{
+    width: 52px;
+}
+
+header nav.menu img {
+    height: 20px;
+    width: 35px;
+}
+
+header nav.menu {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    height: 100vh;
+    width: 200px;
+    background: var(--menu);
+    transition: 0.5s;
+}
+
+header nav.menu.abrir {
+    right: 0;
+}
+
+header nav.menu button {
+    background: none;
+    display: flex;
+    margin-left: auto;
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+
+header nav.menu button img {
+    width: 30px;
+    height: 30px;
+}
+
+header nav.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & li {
+        color: var(--texto);
+        font-size: 24px;
+        margin-bottom: 30px;
+        margin-left: 12px;
+        cursor: pointer;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.principal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 50px;
+}
+
+.principal img {
+    width: 400px;
+    margin-right: 109px;
+}
+
+.principal h1 {
+    font-family: Italiana;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    width: 462px;
+}
+
+.principal p {
+    font-family: "Inria Serif";
+    width: 80%;
+}
+
+.principal button {
+    margin-top: 50px;
+    background: none;
+    border: 1px solid var(--texto);
+    padding: 10px;
+    width: 155px;
+    font-family: "Inria Serif";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.planetas {
+    width: 90%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.planetas div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+        height: 90px;
+    }
+
+    & div {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+}
