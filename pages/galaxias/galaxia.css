@@ -60,11 +60,10 @@ header button {
     cursor: pointer;
 }
 
-header button .menu {
-    height: 30px;
-    width: 30px;
+header button.menu img {
+    height: 20px;
+    width: 35px;
 }
-
 header button img{
     width: 52px;
 }
@@ -136,7 +135,7 @@ main {
 
 .principal h1 {
     font-family: Italiana;
-    font-size: 100px;
+    font-size: 75px;
     font-style: normal;
     font-weight: 400;
     width: 462px;

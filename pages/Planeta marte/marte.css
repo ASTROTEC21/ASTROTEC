@@ -144,24 +144,15 @@ main {
 
 .principal img {
     width: 400px;
-    margin-left: 109px;
-    margin-top: 46px;
-}
-
-.principal div {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    margin-right: 109px;
 }
 
 .principal h1 {
     font-family: Italiana;
-    font-size: 45px;
+    font-size: 100px;
     font-style: normal;
     font-weight: 400;
     width: 462px;
-    margin-top: 47px;
-    margin-right: 78px;
 }
 
 .principal p {
@@ -184,7 +175,7 @@ main {
 
 .planetas {
     width: 90%;
-    margin-top: 64px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
 }

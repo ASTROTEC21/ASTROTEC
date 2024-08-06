@@ -167,6 +167,19 @@ main {
     justify-content: space-between;
 }
 
+.mercurio p {
+    margin-left: 13px;
+}
+.venus p {
+    margin-left: 13px;
+}
+.terra p {
+    margin-left: 13px;
+}
+.marte p {
+    margin-left: 13px;
+}
+
 .planetas div{
     display: flex;
     justify-content: center;

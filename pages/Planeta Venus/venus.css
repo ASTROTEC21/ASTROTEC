@@ -129,39 +129,17 @@ main {
     gap: 50px;
 }
 
-.mercurio p {
-    margin-left: 13px;
-}
-.venus p {
-    margin-left: 13px;
-}
-.terra p {
-    margin-left: 13px;
-}
-.marte p {
-    margin-left: 13px;
-}
-
 .principal img {
     width: 400px;
-    margin-left: 109px;
-    margin-top: 46px;
-}
-
-.principal div {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    margin-right: 109px;
 }
 
 .principal h1 {
     font-family: Italiana;
-    font-size: 45px;
+    font-size: 100px;
     font-style: normal;
     font-weight: 400;
     width: 462px;
-    margin-top: 47px;
-    margin-right: 78px;
 }
 
 .principal p {
@@ -182,9 +160,22 @@ main {
     cursor: pointer;
 }
 
+.mercurio p {
+    margin-left: 13px;
+}
+.venus p {
+    margin-left: 13px;
+}
+.terra p {
+    margin-left: 13px;
+}
+.marte p {
+    margin-left: 13px;
+}
+
 .planetas {
     width: 90%;
-    margin-top: 64px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
 }
