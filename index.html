@@ -7,190 +7,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js" defer></script>
+    <script src="script.js" defer></script>
     <title>ASTROTEC</title>
-    <style>
-        /* Estilos do botão e modal */
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #d0d0d0; /* Fundo da página alterado para cinza */
-            color: #6111E8; /* Cor da fonte */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            position: relative; /* Adicionado para posicionamento absoluto dos elementos */
-        }
-
-        .primary-btn {
-            padding: 12px 24px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #6200ea;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            position: fixed; /* Tornar o botão fixo */
-            bottom: 50px; /* Distância da parte inferior, ajustada para subir o botão */
-            right: 20px; /* Distância da parte direita */
-        }
-
-        .primary-btn:hover {
-            background-color: #3700b3;
-            transform: translateY(-2px);
-        }
-
-        .chatbot-modal {
-            display: none;
-            position: fixed;
-            bottom: 80px; /* Distância da parte inferior */
-            right: 20px; /* Distância da parte direita */
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            border-radius: 20px; /* Borda arredondada para o fundo do chatbot */
-        }
-
-        .chatbot {
-            background-color: #444; /* Alterado para cinza escuro */
-            border-radius: 24px; /* Aumentado para uma borda mais arredondada */
-            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
-            padding: 24px;
-            width: 100%;
-            max-width: 400px;
-            position: relative;
-            text-align: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .chatbot .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .chatbot .header h2 {
-            margin: 0;
-            font-size: 20px;
-            font-weight: 500;
-            color: #fff; /* Cor do título alterada para branco */
-            text-align: center; /* Centralizando o título */
-            flex-grow: 1; /* Para fazer o título ocupar o espaço disponível */
-        }
-
-        .chatbot .close-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #fff; /* Cor do botão de fechar alterada para branco */
-            transition: color 0.3s ease;
-        }
-
-        .chatbot .close-btn:hover {
-            color: #ccc; /* Cor do botão de fechar ao passar o mouse */
-        }
-
-        /* Estilos do chatbot */
-        #container-chat {
-            width: 100%; /* A largura é 100% */
-            border: none; /* Removido a borda */
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: transparent; /* Tornado transparente para se mesclar ao fundo cinza do chatbot */
-        }
-
-        #caixa-chat {
-            height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: #444; /* Alterado para cinza escuro */
-            border-radius: 10px; /* Adicionada borda arredondada */
-        }
-
-        #mensagens {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mensagem {
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff; /* Cor do texto das mensagens do bot */
-        }
-
-        .mensagem-usuario {
-            align-self: flex-end;
-            background-color: #6111E8; /* Cor da mensagem do usuário */
-            border-radius: 10px; /* Bordas arredondadas */
-        }
-
-        .mensagem-bot {
-            align-self: flex-start;
-            background-color: #131944; /* Cor da mensagem do bot */
-            border-radius: 10px; /* Bordas arredondadas */
-        }
-
-        #entrada-usuario {
-            width: calc(100% - 120px); /* Ajustando a largura da caixa de texto */
-            padding: 10px;
-            border: 2px solid #6111E8; /* Bordas adicionadas */
-            border-radius: 10px 0 0 10px; /* Borda arredondada no lado esquerdo */
-            background-color: #2e2e2e;
-            color: white;
-            margin-right: 5px; /* Espaçamento à direita */
-        }
-
-        #botao-enviar {
-            width: 100px; /* Largura definida para o botão de enviar */
-            padding: 10px;
-            border: none;
-            background-color: #6111E8;
-            color: white;
-            cursor: pointer;
-            border-radius: 0 10px 10px 0; /* Borda arredondada no lado direito */
-            transition: background-color 0.3s ease;
-        }
-
-        #botao-enviar:hover {
-            background-color: #6111E8; /* Cor ao passar o mouse */
-        }
-    </style>
 </head>
 <body>
     <header class="opcoes">
         <div class="vazio"></div>
-
         <div>
             <button class="logo">
                 <img src="images/logo.png" alt="logo galaxia">
             </button>
         </div>
-
         <div>
             <button class="menu">
                 <img src="images/Menu.png" alt="menu">
             </button>
         </div>
-
         <nav>
             <button>
                 <img src="./images/Fechar menu.png" alt="fechar">
@@ -206,13 +38,10 @@
 
     <main>
         <h1>ASTRONOMIA DESVENDA SEGREDOS</h1>
-
         <p>Explorar o cosmos é mais do que olhar para as estrelas é mergulhar nos <br> mistérios do universo e desvendar os segredos que moldam nossa existência.</p>
-
         <button class="saibamais">SAIBA MAIS</button>
     </main>
 
-    <!-- Botão para abrir o chatbot -->
     <button id="openChatBtn" class="primary-btn">Abrir Chatbot</button>
 
     <div id="chatbotModal" class="chatbot-modal">
@@ -225,135 +54,12 @@
                 <div id="caixa-chat">
                     <div id="mensagens"></div>
                 </div>
-                <div style="display: flex; margin-top: 10px;"> <!-- Flexbox para alinhar a entrada e o botão -->
+                <div style="display: flex; margin-top: 10px;">
                     <input type="text" id="entrada-usuario" placeholder="Digite sua pergunta...">
                     <button id="botao-enviar">Enviar</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        const openChatBtn = document.getElementById('openChatBtn');
-        const chatbotModal = document.getElementById('chatbotModal');
-        const closeChatBtn = document.getElementById('closeChatBtn');
-        const inputUsuario = document.getElementById('entrada-usuario');
-        const botaoEnviar = document.getElementById('botao-enviar');
-        const mensagensContainer = document.getElementById('mensagens');
-
-        // Função para abrir o modal do chatbot
-        openChatBtn.addEventListener('click', () => {
-            chatbotModal.style.display = 'flex';
-            mensagemInicial(); // Exibe a mensagem inicial toda vez que o chatbot é aberto
-        });
-
-        // Função para fechar o modal do chatbot
-        closeChatBtn.addEventListener('click', () => {
-            limparMensagens(); // Limpa as mensagens ao fechar
-            chatbotModal.style.display = 'none';
-        });
-
-        // Função para limpar mensagens
-        function limparMensagens() {
-            mensagensContainer.innerHTML = ''; // Limpa o conteúdo do contêiner de mensagens
-        }
-
-        // Adicionar mensagens ao chat
-        function adicionarMensagem(texto, classe) {
-            const elementoMensagem = document.createElement('div');
-            elementoMensagem.className = `mensagem ${classe}`;
-            elementoMensagem.textContent = texto;
-            mensagensContainer.appendChild(elementoMensagem);
-            mensagensContainer.scrollTop = mensagensContainer.scrollHeight;
-        }
-
-        // Função para o astro responder
-        function respostaBot(entrada) {
-            const resposta = obterRespostaBot(entrada);
-            setTimeout(() => {
-                adicionarMensagem(resposta, 'mensagem-bot');
-            }, 500);
-        }
-
-        // Função que faz o astro responder baseado no que o usuário pergunta
-        function obterRespostaBot(entrada) {
-            entrada = entrada.toLowerCase();
-
-            if (entrada.includes('planeta')) {
-                return "Um planeta é um corpo celeste que orbita uma estrela e não produz sua própria luz.";
-            } else if (entrada.includes('estrela')) {
-                return "Uma estrela é uma esfera de plasma que gera luz e calor através de reações nucleares.";
-            } else if (entrada.includes('galáxia')) {
-                return "Uma galáxia é um sistema massivo que contém estrelas, planetas e matéria escura.";
-            } else if (entrada.includes('buracos negros')) {
-                return "Buracos negros são regiões do espaço onde a gravidade é tão forte que nada pode escapar dele.";
-            } else if (entrada.includes('cometas')) {
-                return "Cometas são corpos celestes compostos de gelo, poeira e rochas que orbitam o Sol.";
-            } else if (entrada.includes('asteroides')) {
-                return "Os asteroides são pequenos corpos que orbitam o Sol, geralmente entre Marte e Júpiter.";
-            } else if (entrada.includes('vênus')) {
-                return "Vênus é o planeta mais quente do Sistema Solar devido ao efeito estufa.";
-            } else if (entrada.includes('marte')) {
-                return "Marte é conhecido como o 'Planeta Vermelho' por causa de seu solo rico em óxido de ferro.";
-            } else if (entrada.includes('júpiter')) {
-                return "Júpiter é o maior planeta do Sistema Solar e possui uma grande mancha vermelha que é uma tempestade gigante.";
-            } else if (entrada.includes('saturno')) {
-                return "Saturno é conhecido por seus anéis impressionantes, que são compostos de partículas de gelo e rocha.";
-            } else if (entrada.includes('urano')) {
-                return "Urano é um planeta gasoso que gira de lado, o que o torna único em nosso sistema solar.";
-            } else if (entrada.includes('netuno')) {
-                return "Netuno é o planeta mais distante do Sol e é conhecido por sua cor azul intensa.";
-            } else if (entrada.includes('explosão de estrela')) {
-                return "Uma explosão de estrela, conhecida como supernova, ocorre ao final da vida de algumas estrelas massivas.";
-            } else if (entrada.includes('o que é astronomia')) {
-                return "Astronomia é o estudo dos corpos celestes, como estrelas, planetas, cometas e galáxias.";
-            } else if (entrada.includes('o que são buracos de minhoca')) {
-                return "Buracos de minhoca são teóricos túneis no espaço-tempo que poderiam conectar diferentes pontos do universo.";
-            } else if (entrada.includes('como se formam as estrelas')) {
-                return "As estrelas se formam a partir da contração de nuvens de gás e poeira no espaço, conhecidas como nebulosas.";
-            } else if (entrada.includes('quais são os planetas anões')) {
-                return "Os planetas anões incluem Plutão, Eris, Haumea, Makemake e Ceres.";
-            } else if (entrada.includes('o que é um satélite')) {
-                return "Um satélite é um corpo celeste que orbita um planeta ou outro corpo maior.";
-            } else if (entrada.includes('o que é um eclipse')) {
-                return "Um eclipse ocorre quando um corpo celeste se move na sombra de outro corpo celeste.";
-            } else if (entrada.includes('quais são os elementos do universo')) {
-                return "Os elementos mais abundantes no universo são hidrogênio e hélio.";
-            } else if (entrada.includes('a terra é plana')) {
-                return "Não, a Terra é um corpo esférico que orbita o Sol.";
-            } else if (entrada.includes('vai tomar no cu')) {
-                return "Vai você.";
-            } else if (entrada.includes('quais são as luas de júpiter')) {
-                return "Júpiter tem mais de 79 luas conhecidas, sendo as quatro maiores chamadas de luas galileanas: Ío, Europa, Ganimedes e Calisto.";
-            } else if (entrada.includes('o que é gravidade')) {
-                return "A gravidade é a força que atrai dois corpos em direção um ao outro, sendo responsável por manter os planetas em órbita ao redor do Sol.";
-            } else {
-                return "Desculpe, não consegui entender a pergunta. Pode reformulá-la?";
-            }
-        }
-
-        // Função para exibir a mensagem inicial
-        function mensagemInicial() {
-            adicionarMensagem("Olá! Eu sou o Astrogpt. Como posso ajudá-lo com suas perguntas sobre astronomia?", 'mensagem-bot');
-        }
-
-        // Evento para enviar a mensagem do usuário
-        botaoEnviar.addEventListener('click', () => {
-            const textoUsuario = inputUsuario.value.trim();
-            if (textoUsuario) {
-                adicionarMensagem(textoUsuario, 'mensagem-usuario');
-                respostaBot(textoUsuario);
-                inputUsuario.value = ''; // Limpa o campo de entrada
-            }
-        });
-
-        // Evento para fechar o chatbot com a tecla ESC
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                limparMensagens(); // Limpa as mensagens ao fechar
-                chatbotModal.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
