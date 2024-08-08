@@ -36,3 +36,18 @@ botaoSatelite.addEventListener("click", satelitesIr)
 function satelitesIr(){
     window.location.href = "../satelites/satelite.html"
 }
+
+let continuarButton = document.getElementById('continuar')
+let voltarButton = document.getElementById('voltar')
+let menu = document.querySelector('.')
+let items = menu.querySelectorAll('.options .menu')
+let indicator = document.querySelector('.planetas')
+let dots = indicator.querySelectorAll('ul li')
+
+continuarButton.onclick = () => {
+    console.log("Botão continuar")
+}
+
+voltarButton.onclick = () => {
+    console.log("Botão voltar")
+}
