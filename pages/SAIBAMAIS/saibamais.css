@@ -195,3 +195,25 @@ main {
         cursor: pointer;
     }
 }
+
+.section .principal button {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+
+    &button:nth-child(1) {
+        & img {
+            transform: scale(-1);
+        }
+    }
+
+    & button {
+        & img {
+            width: 100px;
+        }
+    }
+}

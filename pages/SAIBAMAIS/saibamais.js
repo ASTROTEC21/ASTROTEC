@@ -39,10 +39,17 @@ function satelitesIr(){
 
 let continuarButton = document.getElementById('continuar')
 let voltarButton = document.getElementById('voltar')
-let menu = document.querySelector('.')
-let items = menu.querySelectorAll('.options .menu')
-let indicator = document.querySelector('.planetas')
+let container = document.querySelector('.options')
+let items = container.querySelectorAll('.menu .planetas')
+let indicator = document.querySelector('.')
 let dots = indicator.querySelectorAll('ul li')
+
+
+let active = 0
+let primeiraPosicao = 0
+let ultimaPosicao = items.length - 1
+
+
 
 continuarButton.onclick = () => {
     console.log("Botão continuar")
