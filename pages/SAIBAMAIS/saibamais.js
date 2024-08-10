@@ -61,3 +61,4 @@ function updateSliderPosition() {
     const newTransformValue = translateX();
     slider.style.transform = newTransformValue;
 }
+

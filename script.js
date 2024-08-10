@@ -149,11 +149,18 @@ function obterRespostaBot(entrada) {
 }
 
 function iniciarQuiz() {
-    emQuiz = true; 
-    perguntaAtual = 0; 
-    acertos = 0; 
-    perguntasQuiz = embaralharPerguntas(perguntasQuiz); 
-    adicionarMensagem(perguntasQuiz[perguntaAtual].pergunta, 'mensagem-bot'); 
+    emQuiz = true;
+    perguntaAtual = 0;
+    acertos = 0;
+    perguntasQuiz = embaralharPerguntas(perguntasQuiz);
+
+    
+    adicionarMensagem("Vamos iniciar o quiz. Responda as perguntas com a resposta correta baseadas no que aprendeu com o site.", 'mensagem-bot');
+    
+    
+    setTimeout(() => {
+        adicionarMensagem(perguntasQuiz[perguntaAtual].pergunta, 'mensagem-bot');
+    }, 2000); 
 }
 
 function verificarResposta(respostaUsuario) {
@@ -173,7 +180,6 @@ function verificarResposta(respostaUsuario) {
             adicionarMensagem(`Você ainda tem ${perguntasRestantes} questões restantes.`, 'mensagem-bot'); 
         }, 1000);
     } else {
-        
         adicionarMensagem(`O quiz terminou! Você acertou ${acertos} de ${perguntasQuiz.length} questões. Se quiser jogar novamente, digite 'quiz'.`, 'mensagem-bot');
         emQuiz = false; 
     }
@@ -191,7 +197,7 @@ function mensagemInicial() {
     adicionarMensagem("Oi! Meu nome é AstroGPT, me pergunte qualquer coisa relacionada á astronomia.", 'mensagem-bot');
 }
 
-
+// Menu e navegação
 const nav = document.querySelector("header nav");
 const body = document.querySelector("body");
 const botaoAbrirMenu = document.querySelector("header .menu");
