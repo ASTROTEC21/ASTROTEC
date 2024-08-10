@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Overpass", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --dark-blue: #262E38;
+    --light-grey: #969FAD;
+    --medium-grey: #7C8798;
+    --orange: #FC7614;
+    --roxo: #6111e8;
+    --white: #FFF;
+    --very-dark-blue: #131518;
+    --black: #010101;
+    --black-gradient: radial-gradient(98.96% 98.96% at 50% 0%, #232A34 0%, #181E27 100%);
+}
+
+body {
+    background-color: var(--very-dark-blue);
+    height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: var(--black);
+
+    text-align: center;
+    height: 412;
+    width: 416;
+    max-width: 412px;
+    padding: 45px 32px;
+    border-radius: 30px;
+}
+
+.estrela {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    margin-bottom: 32px;
+}
+
+.card .paragrafo_nota {
+    background-color: var(--black);
+    width: fit-content;
+    margin-inline: auto;
+    padding: 4px 18px;
+    border-radius: 22px;
+
+    font-size: 15px;
+    color: var(--roxo);
+
+    margin-bottom: 32px;
+}
+
+.card  h1{
+    color: var(--white);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--light-grey);
+    font-size: 15px;
+    line-height: 24px;
+}
