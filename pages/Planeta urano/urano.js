@@ -36,3 +36,28 @@ botaoSatelite.addEventListener("click", satelitesIr)
 function satelitesIr(){
     window.location.href = "../satelites/satelite.html"
 }
+
+const slider = document.getElementById('slider');
+const leftArrow = document.getElementById('left-arrow');
+const rightArrow = document.getElementById('right-arrow');
+
+let currentIndex = 0;
+
+leftArrow.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateSliderPosition();
+    }
+});
+
+rightArrow.addEventListener('click', () => {
+    if (currentIndex < slider.children.length - 1) {
+        currentIndex++;
+        updateSliderPosition();
+    }
+});
+
+function updateSliderPosition() {
+    const newTransformValue = translateX();
+    slider.style.transform = newTransformValue;
+}

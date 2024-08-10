@@ -196,24 +196,39 @@ main {
     }
 }
 
-.section .principal button {
-    width: 70vw;
+.slider-container {
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.arrow {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -25px);
-    display: flex;
-    justify-content: space-between;
+    transform: translateY(-50%);
+    background-color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
 
-    &button:nth-child(1) {
-        & img {
-            transform: scale(-1);
-        }
-    }
+.left-arrow {
+    left: 10px;
+}
 
-    & button {
-        & img {
-            width: 100px;
-        }
-    }
+.right-arrow {
+    right: 10px;
 }

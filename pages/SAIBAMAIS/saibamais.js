@@ -37,24 +37,27 @@ function satelitesIr(){
     window.location.href = "../satelites/satelite.html"
 }
 
-let continuarButton = document.getElementById('continuar')
-let voltarButton = document.getElementById('voltar')
-let container = document.querySelector('.options')
-let items = container.querySelectorAll('.menu .planetas')
-let indicator = document.querySelector('.')
-let dots = indicator.querySelectorAll('ul li')
+const slider = document.getElementById('slider');
+const leftArrow = document.getElementById('left-arrow');
+const rightArrow = document.getElementById('right-arrow');
 
+let currentIndex = 0;
 
-let active = 0
-let primeiraPosicao = 0
-let ultimaPosicao = items.length - 1
+leftArrow.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateSliderPosition();
+    }
+});
 
+rightArrow.addEventListener('click', () => {
+    if (currentIndex < slider.children.length - 1) {
+        currentIndex++;
+        updateSliderPosition();
+    }
+});
 
-
-continuarButton.onclick = () => {
-    console.log("Botão continuar")
-}
-
-voltarButton.onclick = () => {
-    console.log("Botão voltar")
+function updateSliderPosition() {
+    const newTransformValue = translateX();
+    slider.style.transform = newTransformValue;
 }
