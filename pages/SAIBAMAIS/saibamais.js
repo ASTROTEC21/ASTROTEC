@@ -62,3 +62,5 @@ function updateSliderPosition() {
     slider.style.transform = newTransformValue;
 }
 
+
+

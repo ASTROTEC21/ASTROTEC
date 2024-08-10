@@ -223,7 +223,7 @@ main {
     padding: 10px;
     cursor: pointer;
     z-index: 1000;
-    
+
 }
 
 .left-arrow {
@@ -233,4 +233,6 @@ main {
 .right-arrow {
     right: 10px;
 }
+
+
 
