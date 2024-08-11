@@ -1,66 +1,73 @@
-const nav = document.querySelector("header nav.menu")
-const body = document.querySelector("body")
-const botaoAbrirMenu = document.querySelector("header button.menu")
-botaoAbrirMenu.addEventListener("click", menuAbrir)
+// Menu de navegação
+const nav = document.querySelector("header nav.menu");
+const body = document.querySelector("body");
+const botaoAbrirMenu = document.querySelector("header button.menu");
+const botaoFecharMenu = document.querySelector("header nav.menu button");
 
-function menuAbrir(){
-    nav.classList.add("abrir")
-    body.classList.add("escurecer")
-}
-
-const botaoFecharMenu = document.querySelector("header nav.menu button")
-botaoFecharMenu.addEventListener("click", menuFechar)
-
-function menuFechar(){
-    nav.classList.remove("abrir")
-    body.classList.remove("escurecer")
-}
-
-const botaoLogo = document.querySelector("header button")
-botaoLogo.addEventListener("click", paginaInicial)
-
-function paginaInicial(){
-    window.location.href = "../../index.html"
-}
-
-const botaoGalaxias = document.querySelector("header nav ul #galaxias")
-botaoGalaxias.addEventListener("click", galaxiasIr)
-
-function galaxiasIr(){
-    window.location.href = "../galaxias/galaxia.html"
-}
-
-const botaoSatelite = document.querySelector("header nav ul #satelites")
-botaoSatelite.addEventListener("click", satelitesIr)
-
-function satelitesIr(){
-    window.location.href = "../satelites/satelite.html"
-}
-
-const slider = document.getElementById('slider');
-const leftArrow = document.getElementById('left-arrow');
-const rightArrow = document.getElementById('right-arrow');
-
-let currentIndex = 0;
-
-leftArrow.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-    }
+// Abrir o menu
+botaoAbrirMenu.addEventListener("click", () => {
+    nav.classList.add("abrir");
+    body.classList.add("escurecer");
 });
 
-rightArrow.addEventListener('click', () => {
-    if (currentIndex < slider.children.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-    }
+// Fechar o menu
+botaoFecharMenu.addEventListener("click", () => {
+    nav.classList.remove("abrir");
+    body.classList.remove("escurecer");
 });
 
-function updateSliderPosition() {
-    const newTransformValue = translateX();
-    slider.style.transform = newTransformValue;
+// Redirecionar para a página inicial
+const botaoLogo = document.querySelector("header button.logo");
+botaoLogo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
+// Redirecionar para a página de Galáxias
+const botaoGalaxias = document.querySelector("header nav ul #galaxias");
+botaoGalaxias.addEventListener("click", () => {
+    window.location.href = "../galaxias/galaxia.html";
+});
+
+// Redirecionar para a página de Satélites
+const botaoSatelite = document.querySelector("header nav ul #satelites");
+botaoSatelite.addEventListener("click", () => {
+    window.location.href = "../satelites/satelite.html";
+});
+
+const planetas = document.querySelectorAll('.planeta');
+const setaEsquerda = document.getElementById('seta-esquerda');
+const setaDireita = document.getElementById('seta-direita');
+let indiceAtual = 0;
+
+function esconderPlaneta(index, direcao) {
+    planetas[index].style.transition = 'transform 0.6s ease';
+    planetas[index].style.transform = `translateX(${direcao === 'direita' ? '-100%' : '100%'})`;
 }
 
+function mostrarPlaneta(index, direcao) {
+    planetas[index].style.transition = 'none';
+    planetas[index].style.transform = `translateX(${direcao === 'direita' ? '100%' : '-100%'})`;
+    
+    setTimeout(() => {
+        planetas[index].style.transition = 'transform 0.6s ease';
+        planetas[index].style.transform = 'translateX(0)';
+    }, 20);
+}
 
+setaEsquerda.addEventListener('click', () => {
+    const planetaAnterior = indiceAtual;
+    indiceAtual = (indiceAtual === 0) ? planetas.length - 1 : indiceAtual - 1;
+    esconderPlaneta(planetaAnterior, 'direita');
+    mostrarPlaneta(indiceAtual, 'esquerda');
+});
 
+setaDireita.addEventListener('click', () => {
+    const planetaAnterior = indiceAtual;
+    indiceAtual = (indiceAtual === planetas.length - 1) ? 0 : indiceAtual + 1;
+    esconderPlaneta(planetaAnterior, 'esquerda');
+    mostrarPlaneta(indiceAtual, 'direita');
+});
+
+planetas.forEach((planeta, index) => {
+    planeta.style.transform = (index === 0) ? 'translateX(0)' : 'translateX(100%)';
+});

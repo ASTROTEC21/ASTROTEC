@@ -1,47 +1,53 @@
-const nav = document.querySelector("header nav.menu")
-const body = document.querySelector("body")
-const botaoAbrirMenu = document.querySelector("header button.menu")
-botaoAbrirMenu.addEventListener("click", menuAbrir)
 
-function menuAbrir(){
-    nav.classList.add("abrir")
-    body.classList.add("escurecer")
-}
+const nav = document.querySelector("header nav.menu");
+const body = document.querySelector("body");
+const botaoAbrirMenu = document.querySelector("header button.menu");
+const botaoFecharMenu = document.querySelector("header nav.menu button");
 
-const botaoFecharMenu = document.querySelector("header nav.menu button")
-botaoFecharMenu.addEventListener("click", menuFechar)
 
-function menuFechar(){
-    nav.classList.remove("abrir")
-    body.classList.remove("escurecer")
-}
+botaoAbrirMenu.addEventListener("click", () => {
+    nav.classList.add("abrir");
+    body.classList.add("escurecer");
+});
 
-const botaoLogo = document.querySelector("header button")
-botaoLogo.addEventListener("click", paginaInicial)
 
-function paginaInicial(){
-    window.location.href = "../../index.html"
-}
+botaoFecharMenu.addEventListener("click", () => {
+    nav.classList.remove("abrir");
+    body.classList.remove("escurecer");
+});
 
-const botaoGalaxias = document.querySelector("header nav ul #galaxias")
-botaoGalaxias.addEventListener("click", galaxiasIr)
 
-function galaxiasIr(){
-    window.location.href = "../galaxias/galaxia.html"
-}
+const botaoLogo = document.querySelector("header button.logo");
+botaoLogo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
 
-const botaoSatelite = document.querySelector("header nav ul #satelites")
-botaoSatelite.addEventListener("click", satelitesIr)
 
-function satelitesIr(){
-    window.location.href = "../satelites/satelite.html"
-}
+const botaoGalaxias = document.querySelector("header nav ul #galaxias");
+botaoGalaxias.addEventListener("click", () => {
+    window.location.href = "../galaxias/galaxia.html";
+});
+
+
+const botaoSatelite = document.querySelector("header nav ul #satelites");
+botaoSatelite.addEventListener("click", () => {
+    window.location.href = "../satelites/satelite.html";
+});
+
 
 const slider = document.getElementById('slider');
 const leftArrow = document.getElementById('left-arrow');
 const rightArrow = document.getElementById('right-arrow');
 
 let currentIndex = 0;
+
+
+function updateSliderPosition() {
+    const slideWidth = slider.children[0].offsetWidth;
+    const newTransformValue = -currentIndex * slideWidth + 'px';
+    slider.style.transform = `translateX(${newTransformValue})`;
+}
+
 
 leftArrow.addEventListener('click', () => {
     if (currentIndex > 0) {
@@ -50,14 +56,10 @@ leftArrow.addEventListener('click', () => {
     }
 });
 
+
 rightArrow.addEventListener('click', () => {
     if (currentIndex < slider.children.length - 1) {
         currentIndex++;
         updateSliderPosition();
     }
 });
-
-function updateSliderPosition() {
-    const newTransformValue = translateX();
-    slider.style.transform = newTransformValue;
-}

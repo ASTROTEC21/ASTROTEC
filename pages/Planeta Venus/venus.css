@@ -64,7 +64,8 @@ header button.menu img {
     height: 20px;
     width: 35px;
 }
-header button img{
+
+header button img {
     width: 52px;
 }
 
@@ -105,14 +106,14 @@ header nav.menu ul {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
 
-    & li {
-        color: var(--texto);
-        font-size: 24px;
-        margin-bottom: 30px;
-        margin-left: 12px;
-        cursor: pointer;
-    }
+header nav.menu ul li {
+    color: var(--texto);
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-left: 12px;
+    cursor: pointer;
 }
 
 main {
@@ -121,7 +122,7 @@ main {
     align-items: center;
 }
 
-.principal{
+.principal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,19 +161,6 @@ main {
     cursor: pointer;
 }
 
-.mercurio p {
-    margin-left: 13px;
-}
-.venus p {
-    margin-left: 13px;
-}
-.terra p {
-    margin-left: 13px;
-}
-.marte p {
-    margin-left: 13px;
-}
-
 .planetas {
     width: 90%;
     margin-top: 30px;
@@ -180,20 +168,27 @@ main {
     justify-content: space-between;
 }
 
-.planetas div{
+.mercurio p,
+.venus p,
+.terra p,
+.marte p {
+    margin-left: 13px;
+}
+
+.planetas div {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    & img {
-        height: 90px;
-    }
+.planetas img {
+    height: 90px;
+}
 
-    & div {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-    }
+.slider-container {
+    width: 300px;
+    overflow: hidden;
+    position: relative;
 }
 
 .slider {
@@ -217,6 +212,9 @@ main {
     padding: 10px;
     cursor: pointer;
     z-index: 1000;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .left-arrow {
@@ -226,4 +224,3 @@ main {
 .right-arrow {
     right: 10px;
 }
-
