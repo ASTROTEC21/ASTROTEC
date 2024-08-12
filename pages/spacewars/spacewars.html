@@ -1,377 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-<title>Space Wars</title>
-<style>
-  * {
-    font-family: "Inter", sans-serif;
-  }
-
-  :root {
-    --botao-color: #19215B;
-    --botao-quiz: #4B12BC;
-    --botao-sair: #C6271A;
-    --texto: #FFFFFF;
-    --preto: #010101;
-    --menu: #0F0E0E;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #000;
-    color: #fff;
-    font-family: "Inter", sans-serif;
-    background: url(../../images/planetasfundo.png) no-repeat center center fixed;
-    background-size: cover;
-  }
-  #title {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  #scoreboard {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  #canvas {
-    border: 2px solid #000;
-    background-color: #fff;
-  }
-  #introScreen, #gameOverScreen, #victoryScreen, #pauseScreen {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: url(../../images/planetasfundo.png) no-repeat center center fixed;
-    background-size: cover;
-  }
-  #introScreen button, #gameOverScreen button, #victoryScreen button, #pauseScreen button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    background-color: var(--botao-quiz); 
-    color: var(--texto); 
-    font-family: "Inter", sans-serif; 
-    border: none; 
-    border-radius: 5px; 
-  }
-  
-  #introScreen button:hover, #gameOverScreen button:hover, #victoryScreen button:hover, #pauseScreen button:hover {
-    background-color: var(--botao-color);
-  }
-  
-  #introScreen button:active, #gameOverScreen button:active, #victoryScreen button:active, #pauseScreen button:active {
-    background-color: var(--botao-quiz);
-  }
-
-  #pauseButton, #exitButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: var(--botao-quiz); /* Cor de fundo padrão */
-    color: var(--texto); /* Cor do texto */
-    font-family: "Inter", sans-serif; /* Fonte */
-    border: none; /* Remove bordas se existirem */
-    border-radius: 5px; /* Bordas arredondadas */
-  }
-
-  #pauseButton:hover, #exitButton:hover {
-    background-color: var(--botao-color);
-  }
-
-  #pauseButton:active, #exitButton:active {
-    background-color: var(--botao-quiz);
-  }
-</style>
+<link rel="stylesheet" href="spacewars.css">
+<script src="spacewars.js" defer></script>
+<title>SpaceWars</title>
 </head>
 <body>
-  <div id="title">Space Wars</div>
-  <div id="scoreboard">Pontuação: <span id="score">0</span></div>
-  <canvas id="canvas" width="500" height="600"></canvas>
-  <button id="pauseButton" onclick="togglePause()">Pausar</button>
-  <div id="introScreen">
-    <h2>Bem-vindo ao Space Wars!</h2>
+  <div id="titulo">SpaceWars</div>
+  <div id="placar">Pontuação: <span id="pontuacao">0</span></div>
+  <canvas id="tela" width="500" height="600"></canvas>
+  <button id="botaoPausar" onclick="alternarPausa()">Pausar</button>
+  
+  <div id="telaIntro">
+    <h2>Bem-vindo ao SpaceWars!</h2>
     <p>Comandos do Jogo:</p>
     <ul>
       <li>Setas Esquerda/Direita: Mover a nave</li>
       <li>Barra de Espaço: Atirar</li>
       <li>Tecla P: Pausar/Continuar</li>
     </ul>
+
     <p>Objetivo do Jogo:</p>
+
     <p>Elimine todos os invasores antes que eles alcancem sua nave.</p>
-    <button onclick="startGame()">Iniciar Jogo</button>
-    <button id="introExitButton" onclick="exitToIndex()">Sair para o Astrotec</button>
+    <button onclick="iniciarJogo()">Iniciar Jogo</button>
+    <button id="botaoSairIntro" onclick="sairParaIndex()">Sair para o Astrotec</button>
   </div>
-  <div id="gameOverScreen">
-    <div id="gameOverMessage">Fim de Jogo</div>
-    <button onclick="restartGame()">Reiniciar</button>
-    <button id="gameOverExitButton" onclick="returnToIntro()">Voltar para o inicio</button>
+
+  <div id="telaGameOver">
+    <div id="mensagemGameOver">Fim de Jogo</div>
+    <button onclick="reiniciarJogo()">Reiniciar</button>
+    <button id="botaoSairGameOver" onclick="voltarParaIntro()">Voltar para o início</button>
   </div>
-  <div id="victoryScreen">
-    <div id="victoryMessage">Você Venceu!</div>
-    <button onclick="restartGame()">Reiniciar</button>
-    <button id="victoryExitButton" onclick="returnToIntro()">Voltar para o inicio</button>
+
+  <div id="telaVitoria">
+    <div id="mensagemVitoria">Você Venceu!</div>
+    <button onclick="reiniciarJogo()">Reiniciar</button>
+    <button id="botaoSairVitoria" onclick="voltarParaIntro()">Voltar para o início</button>
   </div>
-  <div id="pauseScreen">
+
+  <div id="telaPausa">
     <div>Pausado</div>
-    <button onclick="togglePause()">Continuar</button>
-    <button id="pauseExitButton" onclick="returnToIntro()">Voltar para o inicio</button>
+    <button onclick="alternarPausa()">Continuar</button>
+    <button id="botaoSairPausa" onclick="voltarParaIntro()">Voltar para o início</button>
   </div>
-  <img id="invader" src="../../images/imperio2 (1).png" style="display: none;">
-  <img id="cannon" src="../../images/spaceship.png" style="display: none;">
-  <script>
-    var interval;
-    var ctx = document.getElementById("canvas").getContext("2d");
-    var score = 0;
-    var scoreElement = document.getElementById("score");
-    var introScreen = document.getElementById("introScreen");
-    var gameOverScreen = document.getElementById("gameOverScreen");
-    var gameOverMessage = document.getElementById("gameOverMessage");
-    var victoryScreen = document.getElementById("victoryScreen");
-    var victoryMessage = document.getElementById("victoryMessage");
-    var pauseScreen = document.getElementById("pauseScreen");
-    var pauseButton = document.getElementById("pauseButton");
-    var gameRunning = false;
-    var gamePaused = false;
 
-    var leftPressed = false;
-    var rightPressed = false;
+  <img id="invasor" src="../../images/imperio2 (1).png" style="display: none;">
+  <img id="nave" src="../../images/spaceship.png" style="display: none;">
 
-    function GameObject(x, y, img) {
-      this.x = x; this.y = y; this.img = img; this.active = true;
-    }
-    GameObject.prototype.draw = function(ctx) {
-      this.active && ctx.drawImage(this.img, this.x, this.y, 40, 40);
-    }
-    GameObject.prototype.move = function(dx, dy) {
-      this.x += dx; this.y += dy;
-    }
-    GameObject.prototype.fire = function(dy) {
-      return new Shot(this.x + 20, this.y + 20, dy);
-    }
-    GameObject.prototype.isHitBy = function(shot) {
-      if (!this.active) return false;
-      return (
-        shot.x >= this.x &&
-        shot.x <= this.x + 40 &&
-        shot.y >= this.y &&
-        shot.y <= this.y + 40
-      );
-    }
-    function Shot(x, y, dy) {
-      this.x = x; this.y = y; this.dy = dy;
-    }
-    Shot.prototype.move = function() {
-      this.y += this.dy;
-      return this.y > 0 && this.y < 600;
-    }
-    Shot.prototype.draw = function(ctx) {
-      ctx.fillStyle = '#4B12BC';
-      ctx.fillRect(this.x - 1, this.y, 4, 20);
-    }
-    var invaderDx = -5;
-    var invaders = [];
-    var cannon = new GameObject(230, 550, document.getElementById("cannon")); 
-    var invaderShot, cannonShot;
-
-    function init() {
-      ctx.clearRect(0, 0, 500, 600);
-      invaders = [];
-      var img = document.getElementById("invader");
-      for (var y = 0; y < 3; y++) {
-        for (var x = 0; x < 8; x++) {
-          invaders.push(new GameObject(50 + x * 50, 20 + y * 50, img));
-        }
-      }
-      cannon = new GameObject(230, 550, document.getElementById("cannon"));
-      invaderShot = null;
-      cannonShot = null;
-      score = 0;
-      scoreElement.textContent = score;
-      gameRunning = false;
-      gamePaused = false;
-      pauseButton.textContent = "Pausar";
-    }
-
-    function draw() {
-      ctx.fillStyle = '#111';
-      ctx.fillRect(0, 0, 500, 600);
-      invaders.forEach(inv => inv.draw(ctx));
-      cannon.draw(ctx);
-      invaderShot && invaderShot.draw(ctx);
-      cannonShot && cannonShot.draw(ctx);
-    }
-
-    function move() {
-      if (!gameRunning || gamePaused) return;
-      var leftX = invaders[0].x, rightX = invaders[invaders.length - 1].x;
-      if (leftX <= 20 || rightX >= 440) invaderDx = -invaderDx;
-      invaders.forEach(inv => inv.move(invaderDx, 0.4)); 
-      if (invaderShot && !invaderShot.move()) {
-        invaderShot = null;
-      }
-      if (!invaderShot) {
-        var active = invaders.filter(i => i.active);
-        if (active.length > 0) {
-          var r = active[Math.floor(Math.random() * active.length)];
-          invaderShot = r.fire(22); 
-        }
-      }
-      if (cannonShot) {
-        var hit = invaders.find(inv => inv.isHitBy(cannonShot));
-        if (hit) {
-          hit.active = false;
-          score += 10; 
-          scoreElement.textContent = score;
-          cannonShot = null;
-        } else {
-          if (!cannonShot.move()) cannonShot = null;
-        }
-      }
-
-      if (leftPressed && cannon.x > 0) {
-        cannon.move(-5, 0);
-      }
-      if (rightPressed && cannon.x < 460) {
-        cannon.move(5, 0);
-      }
-    }
-
-    function isGameOver() {
-      return cannon.isHitBy(invaderShot) || invaders.find(inv => inv.active && inv.y > 530);
-    }
-
-    function isVictory() {
-      return invaders.every(inv => !inv.active);
-    }
-
-    function game() {
-      if (!gameRunning || gamePaused) return;
-      move();
-      draw();
-      if (isGameOver()) {
-        clearInterval(interval);
-        showGameOverScreen();
-        gameRunning = false;
-      } else if (isVictory()) {
-        clearInterval(interval);
-        showVictoryScreen();
-        gameRunning = false;
-      }
-    }
-
-    function start() {
-      document.addEventListener("keydown", function(e) {
-        if (e.keyCode == 37) {
-          leftPressed = true;
-        }
-        if (e.keyCode == 39) {
-          rightPressed = true;
-        }
-        if (e.keyCode == 32 && !cannonShot && gameRunning) {
-          cannonShot = cannon.fire(-30);
-        }
-        if (e.keyCode == 80) {
-          togglePause();
-        }
-      });
-
-      document.addEventListener("keyup", function(e) {
-        if (e.keyCode == 37) {
-          leftPressed = false;
-        }
-        if (e.keyCode == 39) {
-          rightPressed = false;
-        }
-      });
-
-      interval = setInterval(game, 50);
-    }
-
-    function togglePause() {
-      if (gameRunning) {
-        gamePaused = !gamePaused;
-        if (gamePaused) {
-          pauseButton.textContent = "Continuar";
-          pauseScreen.style.display = "flex";
-        } else {
-          pauseButton.textContent = "Pausar";
-          pauseScreen.style.display = "none";
-        }
-      }
-    }
-
-    function showGameOverScreen() {
-      gameOverMessage.innerHTML = `Fim de Jogo<br>Sua pontuação: ${score}`;
-      gameOverScreen.style.display = "flex";
-    }
-
-    function showVictoryScreen() {
-      victoryMessage.innerHTML = `Você Venceu!<br>Sua pontuação: ${score}`;
-      victoryScreen.style.display = "flex";
-    }
-
-    function startGame() {
-      introScreen.style.display = "none";
-      gameOverScreen.style.display = "none";
-      victoryScreen.style.display = "none";
-      pauseScreen.style.display = "none";
-      init();
-      gameRunning = true;
-      start();
-    }
-
-    function restartGame() {
-      introScreen.style.display = "none";
-      gameOverScreen.style.display = "none";
-      victoryScreen.style.display = "none";
-      pauseScreen.style.display = "none";
-      init();
-      gameRunning = true;
-      start();
-    }
-
-    function returnToIntro() {
-      introScreen.style.display = "flex";
-      gameOverScreen.style.display = "none";
-      victoryScreen.style.display = "none";
-      pauseScreen.style.display = "none";
-    }
-
-    function exitToIndex() {
-      window.location.href = '../../index.html'; // Redireciona para a página index.html
-    }
-
-    window.onload = function() {
-      introScreen.style.display = "flex";
-      gameOverScreen.style.display = "none";
-      victoryScreen.style.display = "none";
-      pauseScreen.style.display = "none";
-      gameRunning = false;
-    }
-  </script>
 </body>
 </html>
