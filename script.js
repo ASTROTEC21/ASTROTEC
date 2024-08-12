@@ -1,79 +1,141 @@
-const openChatBtn = document.getElementById('openChatBtn');
-const chatbotModal = document.getElementById('chatbotModal');
-const closeChatBtn = document.getElementById('closeChatBtn');
-const inputUsuario = document.getElementById('entrada-usuario');
+const abrirChatBtn = document.getElementById('abrirChatBtn');
+const modalChatbot = document.getElementById('modalChatbot');
+const fecharChatBtn = document.getElementById('fecharChatBtn');
+const entradaUsuario = document.getElementById('entrada-usuario');
 const botaoEnviar = document.getElementById('botao-enviar');
 const mensagensContainer = document.getElementById('mensagens');
 
-let emQuiz = false; 
+let emQuiz = false;
 let perguntasQuiz = [
     {
         pergunta: "Qual é o maior planeta do sistema solar?",
-        resposta: "júpiter"
+        alternativas: {
+            A: "Júpiter",
+            B: "Saturno",
+            C: "Terra",
+            D: "Netuno"
+        },
+        resposta: "A"
     },
     {
         pergunta: "Quantas galáxias existem no universo observável?",
-        resposta: "dois trilhões"
+        alternativas: {
+            A: "Um trilhão",
+            B: "Dois trilhões",
+            C: "Cinco trilhões",
+            D: "Dez trilhões"
+        },
+        resposta: "B"
     },
     {
         pergunta: "Qual planeta é conhecido como o Planeta Vermelho?",
-        resposta: "marte"
+        alternativas: {
+            A: "Marte",
+            B: "Vênus",
+            C: "Mercúrio",
+            D: "Urano"
+        },
+        resposta: "A"
     },
     {
         pergunta: "Qual é o nome da nossa galáxia?",
-        resposta: "via láctea"
+        alternativas: {
+            A: "Via Láctea",
+            B: "Andrômeda",
+            C: "Galáxia de Messier 87",
+            D: "Galáxia do Sombrero"
+        },
+        resposta: "A"
     },
     {
         pergunta: "Qual é o astro mais próximo da Terra?",
-        resposta: "sol"
+        alternativas: {
+            A: "Lua",
+            B: "Sol",
+            C: "Marte",
+            D: "Vênus"
+        },
+        resposta: "B"
     },
     {
         pergunta: "Qual planeta é conhecido por ter anéis?",
-        resposta: "saturno"
+        alternativas: {
+            A: "Saturno",
+            B: "Urano",
+            C: "Netuno",
+            D: "Júpiter"
+        },
+        resposta: "A"
     },
     {
         pergunta: "Qual é a maior lua de Saturno?",
-        resposta: "titã"
+        alternativas: {
+            A: "Titã",
+            B: "Reia",
+            C: "Encélado",
+            D: "Mimas"
+        },
+        resposta: "A"
     },
     {
-        pergunta: "Qual o satélite natural da terra?",
-        resposta: "lua"
+        pergunta: "Qual o satélite natural da Terra?",
+        alternativas: {
+            A: "Lua",
+            B: "Marte",
+            C: "Vênus",
+            D: "Io"
+        },
+        resposta: "A"
     },
     {
         pergunta: "Quantos planetas existem no sistema solar?",
-        resposta: "oito"
+        alternativas: {
+            A: "Sete",
+            B: "Oito",
+            C: "Nove",
+            D: "Dez"
+        },
+        resposta: "B"
     },
     {
         pergunta: "Qual é a temperatura média da superfície da Terra?",
-        resposta: "15 graus celsius"
+        alternativas: {
+            A: "10 graus Celsius",
+            B: "15 graus Celsius",
+            C: "20 graus Celsius",
+            D: "25 graus Celsius"
+        },
+        resposta: "B"
     }
 ];
 
 let perguntaAtual = 0;
-let acertos = 0; 
+let acertos = 0;
+let erros = 0;
 
-openChatBtn.addEventListener('click', () => {
-    chatbotModal.style.display = 'flex';
+abrirChatBtn.addEventListener('click', () => {
+    modalChatbot.style.display = 'flex';
     mensagemInicial();
 });
 
-closeChatBtn.addEventListener('click', () => {
+fecharChatBtn.addEventListener('click', () => {
     limparMensagens();
-    chatbotModal.style.display = 'none';
-    emQuiz = false; 
-    perguntaAtual = 0; 
-    acertos = 0; 
+    modalChatbot.style.display = 'none';
+    emQuiz = false;
+    perguntaAtual = 0;
+    acertos = 0;
+    erros = 0;
 });
 
 botaoEnviar.addEventListener('click', () => {
-    const entradaUsuario = inputUsuario.value.trim();
-    if (entradaUsuario) {
-        adicionarMensagem(entradaUsuario, 'mensagem-usuario'); 
-        inputUsuario.value = ''; 
+    const entradaUsuarioTexto = entradaUsuario.value.trim();
+    if (entradaUsuarioTexto) {
+        adicionarMensagem(entradaUsuarioTexto, 'mensagem-usuario');
+        entradaUsuario.value = '';
         if (emQuiz) {
-            verificarResposta(entradaUsuario); 
+            verificarResposta(entradaUsuarioTexto);
         } else {
-            respostaBot(entradaUsuario); 
+            respostaBot(entradaUsuarioTexto);
         }
     }
 });
@@ -83,11 +145,13 @@ function limparMensagens() {
 }
 
 function adicionarMensagem(texto, classe) {
-    const elementoMensagem = document.createElement('div');
-    elementoMensagem.className = `mensagem ${classe}`;
-    elementoMensagem.textContent = texto;
-    mensagensContainer.appendChild(elementoMensagem);
-    mensagensContainer.scrollTop = mensagensContainer.scrollHeight; 
+    if (texto.trim()) {
+        const elementoMensagem = document.createElement('div');
+        elementoMensagem.className = `mensagem ${classe}`;
+        elementoMensagem.textContent = texto;
+        mensagensContainer.appendChild(elementoMensagem);
+        mensagensContainer.scrollTop = mensagensContainer.scrollHeight;
+    }
 }
 
 function respostaBot(entrada) {
@@ -101,8 +165,8 @@ function obterRespostaBot(entrada) {
     entrada = entrada.toLowerCase();
 
     if (entrada.includes('quiz')) {
-        iniciarQuiz(); 
-        return; 
+        iniciarQuiz();
+        return;
     } else if (entrada.includes('planeta')) {
         return "Um planeta é um corpo celeste que orbita uma estrela e não produz sua própria luz.";
     } else if (entrada.includes('estrela')) {
@@ -152,36 +216,60 @@ function iniciarQuiz() {
     emQuiz = true;
     perguntaAtual = 0;
     acertos = 0;
+    erros = 0;
     perguntasQuiz = embaralharPerguntas(perguntasQuiz);
 
-    
-    adicionarMensagem("Vamos iniciar o quiz. Responda as perguntas com a resposta correta baseadas no que aprendeu com o site.", 'mensagem-bot');
-    
-    
-    setTimeout(() => {
-        adicionarMensagem(perguntasQuiz[perguntaAtual].pergunta, 'mensagem-bot');
-    }, 2000); 
+    adicionarMensagem("Vamos iniciar o quiz. Responda as perguntas com a alternativa correta (A, B, C ou D) ou com o texto completo da resposta.", 'mensagem-bot');
+    mostrarPerguntaAtual();
+}
+
+function mostrarPerguntaAtual() {
+    const perguntaAtualQuiz = perguntasQuiz[perguntaAtual];
+    adicionarMensagem(perguntaAtualQuiz.pergunta, 'mensagem-bot');
+
+    const alternativas = Object.entries(perguntaAtualQuiz.alternativas)
+        .map(([letra, texto]) => `${letra} - ${texto}`);
+
+    alternativas.forEach((alternativa, index) => {
+        setTimeout(() => {
+            adicionarMensagem(alternativa, 'mensagem-bot');
+        }, 500 * (index + 1));
+    });
 }
 
 function verificarResposta(respostaUsuario) {
-    const respostaCorreta = perguntasQuiz[perguntaAtual].resposta;
-    if (respostaUsuario.toLowerCase() === respostaCorreta) {
+    const respostaUsuarioNormalizada = respostaUsuario.toLowerCase().trim();
+    const perguntaAtualQuiz = perguntasQuiz[perguntaAtual];
+    const respostaCorreta = perguntaAtualQuiz.resposta;
+    const alternativas = perguntaAtualQuiz.alternativas;
+    const respostaCorretaTexto = alternativas[respostaCorreta].toLowerCase().trim();
+
+    if (["a", "b", "c", "d"].includes(respostaUsuarioNormalizada)) {
+        if (respostaUsuarioNormalizada.toUpperCase() === respostaCorreta) {
+            adicionarMensagem("Correto! Muito bem!", 'mensagem-bot');
+            acertos++;
+        } else {
+            adicionarMensagem(`Errado! A resposta correta era: ${alternativas[respostaCorreta]}.`, 'mensagem-bot');
+            erros++;
+        }
+    } else if (respostaUsuarioNormalizada === respostaCorretaTexto) {
         adicionarMensagem("Correto! Muito bem!", 'mensagem-bot');
-        acertos++; 
+        acertos++;
     } else {
-        adicionarMensagem(`Errado! A resposta correta era: ${respostaCorreta}.`, 'mensagem-bot');
+        adicionarMensagem("Resposta aceita, mas lembre-se de responder com a escrita correta.", 'mensagem-bot');
+        erros++;
     }
 
-    perguntaAtual++; 
-    const perguntasRestantes = perguntasQuiz.length - perguntaAtual; 
+    perguntaAtual++;
+    const perguntasRestantes = perguntasQuiz.length - perguntaAtual;
     if (perguntaAtual < perguntasQuiz.length) {
         setTimeout(() => {
-            adicionarMensagem(perguntasQuiz[perguntaAtual].pergunta, 'mensagem-bot');
-            adicionarMensagem(`Você ainda tem ${perguntasRestantes} questões restantes.`, 'mensagem-bot'); 
+            mostrarPerguntaAtual();
+            adicionarMensagem(`Você ainda tem ${perguntasRestantes} questões restantes. Até agora, você acertou ${acertos} e errou ${erros}.`, 'mensagem-bot');
         }, 1000);
     } else {
-        adicionarMensagem(`O quiz terminou! Você acertou ${acertos} de ${perguntasQuiz.length} questões. Se quiser jogar novamente, digite 'quiz'.`, 'mensagem-bot');
-        emQuiz = false; 
+        adicionarMensagem(`O quiz terminou! Você acertou ${acertos} de ${perguntasQuiz.length} questões e errou ${erros}. Se quiser jogar novamente, digite 'quiz'.`, 'mensagem-bot');
+        emQuiz = false;
     }
 }
 
@@ -194,10 +282,10 @@ function embaralharPerguntas(perguntas) {
 }
 
 function mensagemInicial() {
-    adicionarMensagem("Oi! Meu nome é AstroGPT, me pergunte qualquer coisa relacionada á astronomia.", 'mensagem-bot');
+    adicionarMensagem("Oi! Meu nome é AstroGPT, me pergunte qualquer coisa relacionada à astronomia.", 'mensagem-bot');
 }
 
-
+// Funções de navegação do menu
 const nav = document.querySelector("header nav");
 const body = document.querySelector("body");
 const botaoAbrirMenu = document.querySelector("header .menu");

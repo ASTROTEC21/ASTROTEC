@@ -4,17 +4,17 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
 :root {
-    --botao-color: #19215B;
-    --botao-quiz: #4B12BC;
-    --botao-sair: #C6271A;
-    --texto: #FFFFFF;
-    --preto: #010101;
-    --menu: #0F0E0E;
+    --cor-botao: #19215B;
+    --cor-botao-quiz: #4B12BC;
+    --cor-botao-sair: #C6271A;
+    --cor-texto: #FFFFFF;
+    --cor-preto: #010101;
+    --cor-menu: #0F0E0E;
 }
 
 body {
@@ -75,7 +75,7 @@ header nav {
     right: -200px;
     height: 100vh;
     width: 200px;
-    background: var(--menu);
+    background: var(--cor-menu);
     transition: 0.5s;
 }
 
@@ -101,7 +101,7 @@ header nav ul {
 }
 
 header nav ul li {
-    color: var(--texto);
+    color: var(--cor-texto);
     font-size: 24px;
     margin-bottom: 30px;
     margin-left: 12px;
@@ -117,15 +117,15 @@ main {
     padding: 8px 0;
     align-items: center;
     gap: 38px;
-    color: var(--texto);
+    color: var(--cor-texto);
     text-align: center;
     margin-top: -50px;
 }
 
 main button {
     border: 0;
-    color: var(--texto);
-    background: var(--botao-color);
+    color: var(--cor-texto);
+    background: var(--cor-botao);
     display: flex;
     cursor: pointer;
     border-radius: 999px;
@@ -138,11 +138,11 @@ main p {
     font-family: "Inria Serif", sans-serif;
 }
 
-.primary-btn {
+.botao-principal {
     padding: 12px 24px;
     font-size: 16px;
     color: #fff;
-    background-color: var(--botao-color);
+    background-color: var(--cor-botao);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -152,12 +152,12 @@ main p {
     right: 20px;
 }
 
-.primary-btn:hover {
-    background-color: var(--botao-color);
+.botao-principal:hover {
+    background-color: var(--cor-botao);
     transform: translateY(-2px);
 }
 
-.chatbot-modal {
+.modal-chatbot {
     display: none;
     position: fixed;
     bottom: 80px;
@@ -186,14 +186,14 @@ main p {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.chatbot .header {
+.chatbot .cabecalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.chatbot .header h2 {
+.chatbot .cabecalho h2 {
     margin: 0;
     font-size: 20px;
     font-weight: 500;
@@ -202,7 +202,7 @@ main p {
     flex-grow: 1;
 }
 
-.chatbot .close-btn {
+.chatbot .botao-fechar {
     background: none;
     border: none;
     font-size: 24px;
@@ -211,7 +211,7 @@ main p {
     transition: color 0.3s ease;
 }
 
-.chatbot .close-btn:hover {
+.chatbot .botao-fechar:hover {
     color: #ccc;
 }
 
@@ -245,7 +245,7 @@ main p {
 
 .mensagem-usuario {
     align-self: flex-end;
-    background-color: var(--botao-color);
+    background-color: var(--cor-botao);
     border-radius: 10px;
 }
 
@@ -258,7 +258,7 @@ main p {
 #entrada-usuario {
     width: calc(100% - 120px);
     padding: 10px;
-    border: 2px solid var(--botao-color);
+    border: 2px solid var(--cor-botao);
     border-radius: 10px 0 0 10px;
     background-color: #2e2e2e;
     color: white;
@@ -269,7 +269,7 @@ main p {
     width: 100px;
     padding: 10px;
     border: none;
-    background-color: var(--botao-color);
+    background-color: var(--cor-botao);
     color: white;
     cursor: pointer;
     border-radius: 0 10px 10px 0;
@@ -277,5 +277,5 @@ main p {
 }
 
 #botao-enviar:hover {
-    background-color: var(--botao-color);
+    background-color: var(--cor-botao);
 }
