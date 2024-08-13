@@ -34,40 +34,43 @@ botaoSatelite.addEventListener("click", () => {
     window.location.href = "../satelites/satelite.html";
 });
 
-const planetas = document.querySelectorAll('.planeta');
-const setaEsquerda = document.getElementById('seta-esquerda');
-const setaDireita = document.getElementById('seta-direita');
-let indiceAtual = 0;
 
-function esconderPlaneta(index, direcao) {
-    planetas[index].style.transition = 'transform 0.6s ease';
-    planetas[index].style.transform = `translateX(${direcao === 'direita' ? '-100%' : '100%'})`;
+const botaoMais = document.querySelector("main .principal div button")
+botaoMais.addEventListener("click", abrirMais)
+
+function abrirMais() {
+    const main = document.querySelector("main")
+    const setaL = document.querySelector(".left")
+    const setaR = document.querySelector(".right")
+    const body = document.querySelector("body")
+    const curiosidades = document.querySelector(".curiosidades")
+    setaL.classList.add("ds-n")
+    setaR.classList.add("ds-n")
+    main.classList.add("ds-n")
+    body.classList.add("bodycuriosidades", "escurecer")
+    curiosidades.classList.add("ds-f")
+
+    const botaoVoltar = document.querySelector(".curiosidades .conteudo button")
+    botaoVoltar.addEventListener("click", fecharMais)
+
+    function fecharMais() {
+        setaL.classList.remove("ds-n")
+        setaR.classList.remove("ds-n")
+        main.classList.remove("ds-n")
+        body.classList.remove("bodycuriosidades", "escurecer")
+        curiosidades.classList.remove("ds-f")
+    }
 }
 
-function mostrarPlaneta(index, direcao) {
-    planetas[index].style.transition = 'none';
-    planetas[index].style.transform = `translateX(${direcao === 'direita' ? '100%' : '-100%'})`;
-    
-    setTimeout(() => {
-        planetas[index].style.transition = 'transform 0.6s ease';
-        planetas[index].style.transform = 'translateX(0)';
-    }, 20);
+const esquerda = document.querySelector(".left")
+const direita = document.querySelector(".right")
+esquerda.addEventListener("click", esquerdaIr)
+direita.addEventListener("click", direitaIr)
+
+function esquerdaIr () {
+    window.location.href = "../../index.html"
 }
 
-setaEsquerda.addEventListener('click', () => {
-    const planetaAnterior = indiceAtual;
-    indiceAtual = (indiceAtual === 0) ? planetas.length - 1 : indiceAtual - 1;
-    esconderPlaneta(planetaAnterior, 'direita');
-    mostrarPlaneta(indiceAtual, 'esquerda');
-});
-
-setaDireita.addEventListener('click', () => {
-    const planetaAnterior = indiceAtual;
-    indiceAtual = (indiceAtual === planetas.length - 1) ? 0 : indiceAtual + 1;
-    esconderPlaneta(planetaAnterior, 'esquerda');
-    mostrarPlaneta(indiceAtual, 'direita');
-});
-
-planetas.forEach((planeta, index) => {
-    planeta.style.transform = (index === 0) ? 'translateX(0)' : 'translateX(100%)';
-});
+function direitaIr () {
+    window.location.href = "../Planeta Venus/venus.html"
+}

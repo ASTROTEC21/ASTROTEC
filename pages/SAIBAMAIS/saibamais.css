@@ -114,6 +114,30 @@ header nav.menu ul li {
     cursor: pointer;
 }
 
+.seta {
+    width: auto;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+}
+
+.seta button {
+    background: none;
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.left {
+    left: 0;
+    margin-left: 10px;
+}
+
+.right {
+    right: 0;
+    margin-right: 10px;
+}
+
 main {
     display: flex;
     height: 80vh;
@@ -185,59 +209,6 @@ main {
     height: 90px;
 }
 
-.slider-container {
-    width: 300px;
-    overflow: hidden;
-    position: relative;
-}
-
-.slider-container button {
-    background: none;
-}
-
-.slider {
-    display: flex;
-    transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.slide {
-    min-width: 300px;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    color: white;
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 1s, transform 1s;
-}
-
-.slide.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #030509;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.left-arrow {
-    left: 10px;
-}
-
-.right-arrow {
-    right: 10px;
-}
-
 .planeta {
     position: absolute;
     width: 100%;
@@ -252,4 +223,85 @@ main {
     height: 100%;
 }
 
+.curiosidades {
+    position: absolute;
+    height: 100vh;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    display: none;
+}
+
+.curiosidades .conteudo {
+    width: 50%;
+}
+
+.curiosidades .conteudo h2 {
+    font-family: Italiana;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.curiosidades .conteudo p {
+    font-family: "Inria Serif";
+    font-size: 20px;
+}
+
+.curiosidades .conteudo button {
+    margin-top: 50px;
+    background: none;
+    border: 1px solid var(--texto);
+    padding: 10px;
+    width: 155px;
+    font-family: "Inria Serif";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.curiosidades .informacao {
+    width: 40%;
+    padding: 50px;
+    background: var(--menu);
+    border-radius: 50px;
+}
+
+.curiosidades .informacao .line {
+    width: 100%;
+    height: 1px;
+    background: var(--texto);
+}
+
+.curiosidades .informacao h2 {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.curiosidades .informacao p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.curiosidades .informacao p strong {
+    color: var(--botao-quiz);
+    margin-left: 20px;
+}
+
+.ds-n {
+    display: none;
+}
+
+.ds-f {
+    display: flex;
+}
+
+body.bodycuriosidades {
+    background: url(../../images/Mercurio.png);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

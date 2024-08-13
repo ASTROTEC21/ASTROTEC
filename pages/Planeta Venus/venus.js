@@ -35,31 +35,43 @@ botaoSatelite.addEventListener("click", () => {
 });
 
 
-const slider = document.getElementById('slider');
-const leftArrow = document.getElementById('left-arrow');
-const rightArrow = document.getElementById('right-arrow');
+const botaoMais = document.querySelector("main .principal div button")
+botaoMais.addEventListener("click", abrirMais)
 
-let currentIndex = 0;
+function abrirMais() {
+    const main = document.querySelector("main")
+    const setaL = document.querySelector(".left")
+    const setaR = document.querySelector(".right")
+    const body = document.querySelector("body")
+    const curiosidades = document.querySelector(".curiosidades")
+    setaL.classList.add("ds-n")
+    setaR.classList.add("ds-n")
+    main.classList.add("ds-n")
+    body.classList.add("bodycuriosidades", "escurecer")
+    curiosidades.classList.add("ds-f")
 
+    const botaoVoltar = document.querySelector(".curiosidades .conteudo button")
+    botaoVoltar.addEventListener("click", fecharMais)
 
-function updateSliderPosition() {
-    const slideWidth = slider.children[0].offsetWidth;
-    const newTransformValue = -currentIndex * slideWidth + 'px';
-    slider.style.transform = `translateX(${newTransformValue})`;
+    function fecharMais() {
+        setaL.classList.remove("ds-n")
+        setaR.classList.remove("ds-n")
+        main.classList.remove("ds-n")
+        body.classList.remove("bodycuriosidades", "escurecer")
+        curiosidades.classList.remove("ds-f")
+    }
 }
 
 
-leftArrow.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-    }
-});
+const esquerda = document.querySelector(".left")
+const direita = document.querySelector(".right")
+esquerda.addEventListener("click", esquerdaIr)
+direita.addEventListener("click", direitaIr)
 
+function esquerdaIr () {
+    window.location.href = "../SAIBAMAIS/saibamais.html"
+}
 
-rightArrow.addEventListener('click', () => {
-    if (currentIndex < slider.children.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-    }
-});
+function direitaIr () {
+    window.location.href = "../Planeta Terra/terra.html"
+}
