@@ -147,7 +147,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 100vh;
+    gap: 100px;
 }
 
 .principal {
@@ -159,7 +160,7 @@ main {
 }
 
 .principal img {
-    width: 400px;
+    width: 480px;
     margin-right: 109px;
 }
 
@@ -174,6 +175,7 @@ main {
 .principal p {
     font-family: "Inria Serif";
     width: 80%;
+    font-size: 22px;
 }
 
 .principal button {
@@ -210,7 +212,7 @@ main {
 }
 
 .planetas img {
-    height: 90px;
+    height: 130px;
 }
 
 .curiosidades {
@@ -277,7 +279,7 @@ main {
 }
 
 .curiosidades .informacao p strong {
-    color: var(--botao-quiz);
+    color: #996d10;
     margin-left: 20px;
 }
 

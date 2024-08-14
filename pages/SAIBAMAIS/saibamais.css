@@ -141,10 +141,11 @@ header nav.menu ul li {
 
 main {
     display: flex;
-    height: 80vh;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 100px;
     
 }
 
@@ -157,7 +158,7 @@ main {
 }
 
 .principal img {
-    width: 400px;
+    width: 480px;
     margin-right: 109px;
 }
 
@@ -172,6 +173,7 @@ main {
 .principal p {
     font-family: "Inria Serif";
     width: 80%;
+    font-size: 22px;
 }
 
 .principal button {
@@ -208,7 +210,7 @@ main {
 }
 
 .planetas img {
-    height: 90px;
+    height: 130px;
 }
 
 .planeta {
@@ -289,7 +291,7 @@ main {
 }
 
 .curiosidades .informacao p strong {
-    color: var(--botao-quiz);
+    color: #56606a;
     margin-left: 20px;
 }
 
