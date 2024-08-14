@@ -40,6 +40,7 @@ body.escurecer::before {
     background: rgba(0, 0, 26, 0.5);
     top: 0;
     left: 0;
+    max-width: 100vh;
 }
 
 header {

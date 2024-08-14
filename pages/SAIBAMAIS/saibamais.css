@@ -18,6 +18,7 @@ body {
     background: url(../../images/planetasfundo.png);
     background-repeat: no-repeat;
     background-size: cover;
+    max-width: 100%;
 }
 
 body.escurecer::before {
@@ -144,6 +145,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .principal {
