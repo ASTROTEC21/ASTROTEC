@@ -36,3 +36,17 @@ botaoSatelite.addEventListener("click", satelitesIr)
 function satelitesIr(){
     window.location.href = "../satelites/satelite.html"
 }
+
+const esquerda = document.querySelector(".left")
+const direita = document.querySelector(".right")
+esquerda.addEventListener("click", esquerdaIr)
+direita.addEventListener("click", direitaIr)
+
+function esquerdaIr () {
+    window.location.href = "../Planeta netuno/netuno.html"
+}
+
+function direitaIr () {
+    window.location.href = "../andromeda/andromeda.html"
+}
+
