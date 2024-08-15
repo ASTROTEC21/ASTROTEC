@@ -11,6 +11,11 @@
   --menu: #0F0E0E;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -66,7 +71,7 @@ body {
   font-family: "Inter", sans-serif; 
   border: none; 
   border-radius: 5px; 
-  margin: 10px; /
+  margin: 10px;
 }
 
 #telaIntro button:hover, #telaGameOver button:hover, #telaVitoria button:hover, #telaPausa button:hover {
@@ -76,7 +81,6 @@ body {
 #telaIntro button:active, #telaGameOver button:active, #telaVitoria button:active, #telaPausa button:active {
   background-color: var(--botao-quiz);
 }
-
 
 #telaIntro {
   display: flex;
@@ -89,17 +93,13 @@ body {
   margin-bottom: 10px; 
 }
 
-
 #telaIntro #botaoVoltarAstrotec {
- 
   margin-top: 10px; 
 }
-
 
 #telaGameOver button, #telaVitoria button, #telaPausa button {
   margin: 10px; 
 }
-
 
 #botaoPausar, #botaoSairIntro {
   position: absolute;

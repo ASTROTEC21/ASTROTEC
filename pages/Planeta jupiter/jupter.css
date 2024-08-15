@@ -21,6 +21,12 @@ body {
     max-width: 100%;
 }
 
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body.escurecer::before {
     content: "";
     position: fixed;
@@ -355,61 +361,3 @@ body.bodycuriosidades {
     }
 }
 
-@media (max-width: 768px) {
-    header nav.menu {
-        width: 100%;
-        right: 0;
-        height: 100%;
-    }
-
-    header nav.menu ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    header nav.menu ul li {
-        font-size: 20px;
-    }
-
-    .principal img {
-        width: 250px;
-    }
-
-    .principal h1 {
-        font-size: 50px;
-    }
-
-    .principal p {
-        font-size: 16px;
-    }
-
-    .planetas img {
-        height: 60px;
-    }
-}
-
-@media (max-width: 576px) {
-    .principal img {
-        width: 200px;
-    }
-
-    .principal h1 {
-        font-size: 40px;
-    }
-
-    .principal p {
-        font-size: 14px;
-    }
-
-    .planetas img {
-        height: 50px;
-    }
-
-    .curiosidades .conteudo {
-        width: 80%;
-    }
-
-    .curiosidades .informacao {
-        width: 90%;
-    }
-}

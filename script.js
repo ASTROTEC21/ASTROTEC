@@ -282,7 +282,7 @@ function embaralharPerguntas(perguntas) {
 }
 
 function mensagemInicial() {
-    adicionarMensagem("Oi! Meu nome é AstroGPT, me pergunte qualquer coisa relacionada à astronomia.", 'mensagem-bot');
+    adicionarMensagem("Oi! Meu nome é AstroGPT, me pergunte qualquer coisa relacionada à astronomia. Ou me peça para fazer um quiz!", 'mensagem-bot');
 }
 
 
@@ -324,3 +324,13 @@ botaoSatelite.addEventListener("click", satelitesIr);
 function satelitesIr() {
     window.location.href = "../../pages/satelites/satelite.html";
 }
+
+window.onload = function() {
+
+    document.getElementById('popup').style.display = 'block';
+}
+
+document.getElementById('closePopup').onclick = function() {
+    document.getElementById('popup').style.display = 'none';
+}
+

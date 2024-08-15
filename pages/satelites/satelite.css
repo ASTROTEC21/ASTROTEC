@@ -21,6 +21,12 @@ body {
     max-width: 100%;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+
 body.escurecer::before {
     content: "";
     position: fixed;
