@@ -285,7 +285,7 @@ function mensagemInicial() {
     adicionarMensagem("Oi! Meu nome é AstroGPT, me pergunte qualquer coisa relacionada à astronomia.", 'mensagem-bot');
 }
 
-// Funções de navegação do menu
+
 const nav = document.querySelector("header nav");
 const body = document.querySelector("body");
 const botaoAbrirMenu = document.querySelector("header .menu");
