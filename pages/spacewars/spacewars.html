@@ -17,26 +17,34 @@
   <button id="botaoPausar" onclick="alternarPausa()">Pausar</button>
   
   <div id="telaIntro">
-    <h2>Bem-vindo ao SpaceWars!</h2>
-    <p>Comandos do Jogo:</p>
+    <h1>Bem-vindo ao SpaceWars!</h1>
+
+    <h2>Comandos do Jogo:</h2>
+
     <ul>
       <li>Setas Esquerda/Direita: Mover a nave</li>
       <li>Barra de Espaço: Atirar</li>
       <li>Tecla P: Pausar/Continuar</li>
     </ul>
 
-    <p>Objetivo do Jogo:</p>
+    <h3>Objetivo do Jogo:</h3>
 
     <p>Elimine todos os invasores antes que eles alcancem sua nave.</p>
     <button onclick="iniciarJogo()">Iniciar Jogo</button>
     <button id="botaoSairIntro" onclick="sairParaIndex()">Sair para o Astrotec</button>
   </div>
 
+
+
+  
   <div id="telaGameOver">
     <div id="mensagemGameOver">Fim de Jogo</div>
     <button onclick="reiniciarJogo()">Reiniciar</button>
     <button id="botaoSairGameOver" onclick="voltarParaIntro()">Voltar para o início</button>
   </div>
+
+
+
 
   <div id="telaVitoria">
     <div id="mensagemVitoria">Você Venceu!</div>
@@ -44,11 +52,17 @@
     <button id="botaoSairVitoria" onclick="voltarParaIntro()">Voltar para o início</button>
   </div>
 
+
+
+
   <div id="telaPausa">
     <div>Pausado</div>
     <button onclick="alternarPausa()">Continuar</button>
     <button id="botaoSairPausa" onclick="voltarParaIntro()">Voltar para o início</button>
   </div>
+
+
+
 
   <img id="invasor" src="../../images/imperio2 (1).png" style="display: none;">
   <img id="nave" src="../../images/spaceship.png" style="display: none;">
