@@ -270,3 +270,430 @@ main {
     margin-right: 10px;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+:root {
+    --botao-color: #19215B;
+    --botao-quiz: #4B12BC;
+    --botao-sair: #C6271A;
+    --texto: #FFFFFF;
+    --preto: #010101;
+    --menu: #0F0E0E;
+}
+
+body {
+    background: url(../../images/planetasfundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+}
+
+body.escurecer::before {
+    content: "";
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 26, 0.5);
+    top: 0;
+    left: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul .options {
+    cursor: pointer;
+}
+
+header div {
+    width: 52px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 81px;
+    font-family: "Inria Serif", serif;
+    font-size: 18px;
+}
+
+header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header button.menu img {
+    height: 20px;
+    width: 35px;
+}
+
+header button img {
+    width: 52px;
+}
+
+header nav.menu img {
+    height: 20px;
+    width: 35px;
+}
+
+header nav.menu {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    height: 100vh;
+    width: 200px;
+    background: var(--menu);
+    transition: 0.5s;
+}
+
+header nav.menu.abrir {
+    right: 0;
+}
+
+header nav.menu button {
+    background: none;
+    display: flex;
+    margin-left: auto;
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+
+header nav.menu button img {
+    width: 30px;
+    height: 30px;
+}
+
+header nav.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+header nav.menu ul li {
+    color: var(--texto);
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 50px;
+}
+
+.principal img {
+    width: 480px;
+    margin-right: 109px;
+}
+
+.principal h1 {
+    font-family: Italiana;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    width: 462px;
+}
+
+.principal p {
+    font-family: "Inria Serif";
+    width: 80%;
+    font-size: 22px;
+}
+
+.principal button {
+    margin-top: 50px;
+    background: none;
+    border: 1px solid var(--texto);
+    padding: 10px;
+    width: 155px;
+    font-family: "Inria Serif";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.planetas {
+    width: 90%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mercurio p,
+.venus p,
+.terra p,
+.marte p {
+    margin-left: 13px;
+}
+
+.planetas div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planetas img {
+    height: 170px;
+}
+
+.slider-container {
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.slide {
+    min-width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s, transform 1s;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #030509;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.planeta {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+}
+
+.seta {
+    width: auto;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+}
+
+.seta button {
+    background: none;
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.left {
+    left: 0;
+    margin-left: 10px;
+}
+
+.right {
+    right: 0;
+    margin-right: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    header nav ul {
+        gap: 40px;
+    }
+
+    .principal img {
+        width: 400px;
+        margin-right: 50px;
+    }
+
+    .principal h1 {
+        font-size: 60px;
+    }
+
+    .principal p {
+        font-size: 20px;
+    }
+
+    .planetas img {
+        height: 150px;
+    }
+
+    .slider-container {
+        width: 250px;
+    }
+
+    .slide {
+        min-width: 250px;
+    }
+
+    .arrow {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    header nav ul {
+        gap: 20px;
+    }
+
+    .principal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .principal img {
+        width: 300px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .principal h1 {
+        font-size: 50px;
+    }
+
+    .principal p {
+        font-size: 18px;
+        width: 90%;
+    }
+
+    .planetas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .planetas img {
+        height: 120px;
+    }
+
+    .slider-container {
+        width: 200px;
+    }
+
+    .slide {
+        min-width: 200px;
+    }
+
+    .arrow {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav.menu {
+        width: 100%;
+        right: 0;
+        height: 100%;
+    }
+
+    header nav.menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav.menu ul li {
+        font-size: 20px;
+    }
+
+    .principal img {
+        width: 250px;
+    }
+
+    .principal h1 {
+        font-size: 40px;
+    }
+
+    .principal p {
+        font-size: 16px;
+    }
+
+    .planetas img {
+        height: 100px;
+    }
+
+    .slider-container {
+        width: 180px;
+    }
+
+    .slide {
+        min-width: 180px;
+    }
+
+    .arrow {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .principal img {
+        width: 200px;
+    }
+
+    .principal h1 {
+        font-size: 30px;
+    }
+
+    .principal p {
+        font-size: 14px;
+    }
+
+    .planetas img {
+        height: 80px;
+    }
+
+    .slider-container {
+        width: 150px;
+    }
+
+    .slide {
+        min-width: 150px;
+    }
+
+    .arrow {
+        font-size: 10px;
+    }
+}

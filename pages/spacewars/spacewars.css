@@ -62,7 +62,7 @@ body {
   font-size: 1.2em;
   cursor: pointer;
   background-color: var(--botao-quiz); 
-  color: var(--texto); 
+  color: #fff; 
   font-family: "Inter", sans-serif; 
   border: none; 
   border-radius: 5px; 
