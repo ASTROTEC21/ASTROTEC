@@ -43,7 +43,7 @@ esquerda.addEventListener("click", esquerdaIr)
 direita.addEventListener("click", direitaIr)
 
 function esquerdaIr () {
-    window.location.href = "../Planeta netuno/netuno.html"
+    window.location.href = "../planeta netuno/netuno.html"
 }
 
 function direitaIr () {
