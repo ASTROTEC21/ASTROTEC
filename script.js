@@ -17,6 +17,7 @@ let perguntasQuiz = [
         },
         resposta: "A"
     },
+    
     {
         pergunta: "Quantas galáxias existem no universo observável?",
         alternativas: {
@@ -27,6 +28,7 @@ let perguntasQuiz = [
         },
         resposta: "B"
     },
+    
     {
         pergunta: "Qual planeta é conhecido como o Planeta Vermelho?",
         alternativas: {
@@ -37,6 +39,7 @@ let perguntasQuiz = [
         },
         resposta: "A"
     },
+
     {
         pergunta: "Qual é o nome da nossa galáxia?",
         alternativas: {
@@ -47,6 +50,7 @@ let perguntasQuiz = [
         },
         resposta: "A"
     },
+
     {
         pergunta: "Qual é o astro mais próximo da Terra?",
         alternativas: {
@@ -57,6 +61,7 @@ let perguntasQuiz = [
         },
         resposta: "B"
     },
+
     {
         pergunta: "Qual planeta é conhecido por ter anéis?",
         alternativas: {
@@ -67,6 +72,7 @@ let perguntasQuiz = [
         },
         resposta: "A"
     },
+
     {
         pergunta: "Qual é a maior lua de Saturno?",
         alternativas: {
@@ -77,6 +83,7 @@ let perguntasQuiz = [
         },
         resposta: "A"
     },
+
     {
         pergunta: "Qual o satélite natural da Terra?",
         alternativas: {
@@ -87,6 +94,7 @@ let perguntasQuiz = [
         },
         resposta: "A"
     },
+
     {
         pergunta: "Quantos planetas existem no sistema solar?",
         alternativas: {
@@ -97,6 +105,7 @@ let perguntasQuiz = [
         },
         resposta: "B"
     },
+
     {
         pergunta: "Qual é a temperatura média da superfície da Terra?",
         alternativas: {
@@ -311,6 +320,7 @@ function obterRespostaBot(entrada) {
         return "Uma estrela nova é uma estrela que experimenta um aumento súbito e intenso em luminosidade, resultante da explosão de uma camada de material acumulado na superfície.";
     } else if (entrada.includes('qual é a galáxia mais próxima da Via Láctea')) {
         return "A galáxia mais próxima da Via Láctea é a Galáxia de Andrômeda (M31), localizada a cerca de 2,5 milhões de anos-luz de distância.";
+
     } else if (entrada.includes('oi') || entrada.includes('olá') || entrada.includes('oi tudo bem') || entrada.includes('ola') || entrada.includes('salve') || entrada.includes('eai') || entrada.includes('eae')) {
         return "Olá! Como posso te ajudar hoje?";
     } else if (entrada.includes('como você está') || entrada.includes('como vai você') || entrada.includes('como vai')) {

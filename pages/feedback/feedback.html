@@ -7,6 +7,7 @@
     <script src="./feedback.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../../images/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Feedback</title>
 </head>
@@ -20,15 +21,14 @@
 
         <p>Nossa equipe se dedica a pesquisar, criar e atualizar informações que atendam às suas necessidades e curiosidades. Valorizamos seu feedback e estamos sempre em busca de novas maneiras de melhorar a experiência do usuário. Obrigado por nos acompanhar nesta jornada!</p>
 
-        <div class="botoes">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-        </div>
-
-        <a href="./agradecimento/agradecimento.html">Enviar</a>
+        <form action="https://formsubmit.co/EdutecAstro21@gmail.com" method="POST">
+            <input type="text" name="name" required placeholder="nome">
+            <input type="email" name="email" required placeholder="email">
+            <input type="text" name="text" required placeholder="Seu Feedback">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://5517-astrotec21-astrotec-mjdf9lmlisp.ws-us116.gitpod.io/pages/feedback/agradecimento/agradecimento.html">
+            <button type="submit">Enviar</button>
+         </form>
     </div>
 </body>
 </html>
