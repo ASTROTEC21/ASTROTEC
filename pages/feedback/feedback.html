@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,15 @@
     <link rel="icon" href="../../images/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Feedback</title>
+
+    <script>
+        // Função para redirecionar após o envio do formulário
+        function redirecionar() {
+            setTimeout(function(){
+                window.location.href = 'https://5517-astrotec21-astrotec-mjdf9lmlisp.ws-us116.gitpod.io/pages/feedback/agradecimento/agradecimento.html';
+            }, 1000); // 1 segundo de espera para redirecionar
+        }
+    </script>
 </head>
 <body>
     <div class="card">
@@ -17,17 +26,23 @@
             <a href="../../index.html"><img src="../../images/logo.png" alt="logo do nosso site"></a>   
         </div>
 
-        <h1>Qual nota você dá para o nosso Site?</h1>
+        <h1>Deixe Seu Feedback!</h1>
 
         <p>Nossa equipe se dedica a pesquisar, criar e atualizar informações que atendam às suas necessidades e curiosidades. Valorizamos seu feedback e estamos sempre em busca de novas maneiras de melhorar a experiência do usuário. Obrigado por nos acompanhar nesta jornada!</p>
 
-        <form action="https://formsubmit.co/EdutecAstro21@gmail.com" method="POST">
-            <input type="text" name="name" required placeholder="nome">
-            <input type="email" name="email" required placeholder="email">
-            <input type="text" name="text" required placeholder="Seu Feedback">
+        <form action="https://formsubmit.co/EdutecAstro21@gmail.com" method="POST" onsubmit="redirecionar()">
+            <div class="input-wrapper">
+                <input type="text" name="name" required placeholder="Digite seu nome">
+            </div>
+            <div class="input-wrapper">
+                <input type="email" name="email" required placeholder="Digite seu e-mail">
+            </div>
+            <div class="input-wrapper">
+                <textarea name="text" required placeholder="Digite aqui o que você achou do nosso site, sua opinião é muito importante para nós!"></textarea>
+            </div>
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://5517-astrotec21-astrotec-mjdf9lmlisp.ws-us116.gitpod.io/pages/feedback/agradecimento/agradecimento.html">
-            <button type="submit">Enviar</button>
+            <button type="submit" class="submit-btn">ENVIAR</button>
          </form>
     </div>
 </body>
