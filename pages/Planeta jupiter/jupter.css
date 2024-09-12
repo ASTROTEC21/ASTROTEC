@@ -127,11 +127,14 @@ header nav.menu ul li {
     display: flex;
 }
 
+
+
 .seta button {
     background: none;
     border: none;
     font-size: 50px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .left {
