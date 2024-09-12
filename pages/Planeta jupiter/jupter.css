@@ -21,7 +21,6 @@ body {
     max-width: 100%;
 }
 
-
 html, body {
     height: 100%;
     overflow: hidden;
@@ -121,7 +120,6 @@ header nav.menu ul li {
     cursor: pointer;
 }
 
-
 .seta {
     width: auto;
     height: 100vh;
@@ -145,6 +143,7 @@ header nav.menu ul li {
     right: 0;
     margin-right: 10px;
 }
+
 
 main {
     display: flex;
@@ -202,7 +201,7 @@ main {
     justify-content: space-between;
 }
 
-.jupiter p,
+.mercurio p,
 .venus p,
 .terra p,
 .marte p {
@@ -283,7 +282,7 @@ main {
 }
 
 .curiosidades .informacao p strong {
-    color: #535c6c;
+    color: #6b2c25;
     margin-left: 20px;
 }
 
@@ -296,68 +295,9 @@ main {
 }
 
 body.bodycuriosidades {
-    background: url(../../images/Jupiter.png);
+    background: url(../../images/Marte.png);
     background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-@media (max-width: 1200px) {
-    header nav ul {
-        gap: 40px;
-    }
-
-    .principal img {
-        width: 400px;
-        margin-right: 50px;
-    }
-
-    .principal h1 {
-        font-size: 80px;
-    }
-
-    .principal p {
-        font-size: 20px;
-    }
-
-    .planetas img {
-        height: 100px;
-    }
-}
-
-@media (max-width: 992px) {
-    header nav ul {
-        gap: 20px;
-    }
-
-    .principal {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .principal img {
-        width: 300px;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .principal h1 {
-        font-size: 60px;
-        width: auto;
-    }
-
-    .principal p {
-        font-size: 18px;
-        width: 90%;
-    }
-
-    .planetas {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .planetas img {
-        height: 80px;
-    }
 }
 
