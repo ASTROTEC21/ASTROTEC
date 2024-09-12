@@ -167,7 +167,7 @@ function respostaBot(entrada) {
     const resposta = obterRespostaBot(entrada);
     setTimeout(() => {
         adicionarMensagem(resposta, 'mensagem-bot');
-    }, 500);
+    }, 1000);
 }
 
 function obterRespostaBot(entrada) {
