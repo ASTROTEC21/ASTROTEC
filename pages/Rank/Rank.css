@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(../../images/rank.png);
+    text-align: center;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    list-style: none;
+    left: -15px;
+  }
+
+  header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  header nav {
+    display: flex;
+    gap: 40px;
+
+  }
+  
+  header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  header .menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  header .menu img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+  }
+  
+  .ranking-container {
+    text-align: center;
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .ranking-title {
+    margin-bottom: px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+  
+  .ranking-item .position {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(248, 248, 248);
+  }
+  
+  .ranking-item .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ranking-item .user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .ranking-item .avatar img {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    left: -280px; 
+    top: -40px;
+  }
+  
+  .ranking-item .user-info span {
+    margin-left: 30px; 
+  }
+  
+  
+  .ranking-item .score {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  
+  .continue-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #48244d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
