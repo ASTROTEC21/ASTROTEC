@@ -5,7 +5,7 @@ export async function getName() {
         return
     }
 
-    const response = await fetch("http://localhost:3000/getname", {
+    const response = await fetch("https://backend-mauve-one.vercel.app/getname", {
         headers: {
             "Authorization": token
         }
