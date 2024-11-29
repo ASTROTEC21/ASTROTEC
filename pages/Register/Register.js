@@ -37,7 +37,7 @@ async function register() {
         return
     }
 
-    window.location.href = "../login/login.html"
+    window.location.href = "../Login/login.html"
 }
 
 const button = document.querySelector("form button")
