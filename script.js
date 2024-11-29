@@ -489,7 +489,7 @@ document.getElementById('closePopup').onclick = function() {
 import { verifyToken } from "./utils/verifytoken.js"
 import { getName } from "./utils/getname.js";
 
-const url = "./pages/login/login.html"
+const url = "./pages/Login/login.html"
 
 verifyToken(url)
 getName()
