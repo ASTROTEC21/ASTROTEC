@@ -22,7 +22,7 @@ async function register() {
         password
     }
 
-    const response = await fetch("https://backend-mauve-one.vercel.app/register", {
+    const response = await fetch("https://vercel.com/carvalho-joga-pros-ds-projects/backend/DaDDXWoua8ktmHGgbcAr6m48kUu4/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

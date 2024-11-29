@@ -5,7 +5,7 @@ export async function getName() {
         return
     }
 
-    const response = await fetch("https://backend-mauve-one.vercel.app/getname", {
+    const response = await fetch("https://vercel.com/carvalho-joga-pros-ds-projects/backend/DaDDXWoua8ktmHGgbcAr6m48kUu4/getname", {
         headers: {
             "Authorization": token
         }
