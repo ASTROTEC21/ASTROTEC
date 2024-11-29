@@ -45,6 +45,41 @@ form input{
     font-size: 22px;
 }
 
+header .userName {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    margin-top: -20px;
+
+    && img{
+        width: 50px;
+        margin-left: -5px;
+    }
+    && p {
+    font-size: 20px;
+}
+}
+
+header .sairUser {
+    color: var(--cor-botao-sair);
+    border: 1px solid var(--cor-texto);
+    padding: 10px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+    margin-inline: auto;
+}
+
+header .sairUser:hover {
+    border: 1px solid gray;
+    color: rgb(185, 4, 4);
+    transition: 0.2s;
+    cursor: pointer;
+}
 
 .logo{
     position: fixed;

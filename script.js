@@ -486,3 +486,10 @@ document.getElementById('closePopup').onclick = function() {
     document.getElementById('popup').style.display = 'none';
 }
 
+import { verifyToken } from "./utils/verifytoken.js"
+import { getName } from "./utils/getname.js";
+
+const url = "./pages/login/login.html"
+
+verifyToken(url)
+getName()

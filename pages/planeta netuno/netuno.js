@@ -74,3 +74,12 @@ function esquerdaIr () {
 function direitaIr () {
     window.location.href = "../galaxias/galaxia.html"
 }
+
+
+import { verifyToken } from "../../utils/verifytoken.js"
+import { getName } from "../../utils/getname.js"
+
+const url = "../login/login.html"
+
+verifyToken(url)
+getName()
